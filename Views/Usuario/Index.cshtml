@@ -1,0 +1,51 @@
+﻿@model IEnumerable<FindMyPet.Models.Usuario>
+
+@{
+    ViewData["Title"] = "Usuario";
+}
+
+<p>
+    <a asp-action="Create" class="linkprincipal">Adicionar Novo:</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UsuarioNome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UsuarioTelefone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UsuarioEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UsuarioSenha)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UsuarioNome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UsuarioTelefone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UsuarioEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UsuarioSenha)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="link">Editar</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="link">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<FindMyPet.Models.Observacoes>
+
+@{
+    ViewData["Title"] = "Usuario";
+}
+
+<p>
+    <a asp-action="Create" class="linkprincipal">Adicionar Novo:</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ObservacaoDescricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ObservacaoLocal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ObservacaoData)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnimalId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ObservacaoDescricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ObservacaoLocal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ObservacaoData)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnimalId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario.UsuarioNome)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="link">Editar</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="link">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
